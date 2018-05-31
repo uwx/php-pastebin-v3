@@ -44,7 +44,10 @@ if ($startUp->getCaptchaStatus() == 'no' ||
                 } else {
                 $title = $_POST['title'];
                 }
-        $startUp->addPaste($userId,$title,$_POST['syntax'],$_POST['paste'],$_POST['expiration'],$_POST['exposure']); 
+	if($startup->isLogged())
+	{
+        	$startUp->addPaste($userId,$title,$_POST['syntax'],$_POST['paste'],$_POST['expiration'],$_POST['exposure']); 
+	}
 
         } else {
         $smarty->assign("errorPaste",'1');               
